@@ -1,17 +1,47 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Jellyfin.Plugin.ThemeSongs</AssemblyName>
+    <RootNamespace>Jellyfin.Plugin.ThemeSongs</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Nullable>enable</Nullable>
+    <AnalysisMode>All</AnalysisMode>
+    <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
+    
+    <!-- Package et Version -->
     <IsPackable>true</IsPackable>
-    <AssemblyVersion>10.7.0.2</AssemblyVersion>
-    <FileVersion>10.7.0.2</FileVersion>
-    <Authors />
-    <Company />
+    <Version>10.8.0</Version>
+    <AssemblyVersion>10.8.0.0</AssemblyVersion>
+    <FileVersion>10.8.0.0</FileVersion>
+    
+    <!-- Métadonnées -->
+    <Authors>Votre Nom</Authors>
+    <Company>Jellyfin Project</Company>
+    <Description>Plugin pour télécharger automatiquement les thèmes musicaux des séries</Description>
+    <Copyright>Copyright (c) Jellyfin Project</Copyright>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/votre-repo/Jellyfin.Plugin.ThemeSongs</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/votre-repo/Jellyfin.Plugin.ThemeSongs</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Jellyfin.Controller" Version="10.8.0-alpha5" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <!-- Dépendances Jellyfin -->
+    <PackageReference Include="Jellyfin.Controller" Version="10.8.0" />
+    <PackageReference Include="Jellyfin.Model" Version="10.8.0" />
+    
+    <!-- Autres dépendances -->
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    
+    <!-- Outils d'analyse de code -->
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.435">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -19,12 +49,10 @@
     <EmbeddedResource Include="Configuration\configurationpage.html" />
   </ItemGroup>
 
+  <!-- Exclusion des fichiers inutiles du package -->
   <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-
-  <ItemGroup>
- 
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="LICENSE" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
