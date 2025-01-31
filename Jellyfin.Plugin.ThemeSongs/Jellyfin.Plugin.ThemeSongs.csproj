@@ -1,30 +1,39 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>Jellyfin.Plugin.ThemeSongs</AssemblyName>
+    <RootNamespace>Jellyfin.Plugin.ThemeSongs</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    
+    <!-- Package et Version -->
     <IsPackable>true</IsPackable>
+    <Version>10.10.0.1</Version>
     <AssemblyVersion>10.10.0.1</AssemblyVersion>
     <FileVersion>10.10.0.1</FileVersion>
-    <Authors />
-    <Company />
+    
+    <!-- Métadonnées -->
+    <Authors>YourName</Authors>
+    <Company>Jellyfin Contributors</Company>
+    <Description>Plugin Jellyfin pour le téléchargement automatique des thèmes musicaux</Description>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Dépendances Jellyfin -->
     <PackageReference Include="Jellyfin.Controller" Version="10.10.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Jellyfin.Model" Version="10.10.0" />
+    
+    <!-- Dépendances système -->
+    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Configuration\configurationpage.html" />
     <EmbeddedResource Include="Configuration\configurationpage.html" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-
-  <ItemGroup>
- 
   </ItemGroup>
 
 </Project>
